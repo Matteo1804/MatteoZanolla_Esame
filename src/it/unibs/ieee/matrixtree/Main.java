@@ -14,6 +14,7 @@ public class Main {
 //				a.add(1+j);
 //			}
 //		}
+		
 
 		a.add(1);
 		a.add(1);
@@ -38,6 +39,8 @@ public class Main {
 		
 		System.out.println(b.calcolaDet());
 		
+		
+		NodoTensore q = new NodoTensore();
 	}
 
 }
