@@ -39,6 +39,12 @@ public class Tensore {
 		return matrice;
 	}
 	
+	public String toString(){
+		StringBuffer nuovo = new StringBuffer();
+		nuovo.append(id + " ");
+		nuovo.append(indice + " ");
+		return nuovo.toString();
+	}
 	
 	
 	
