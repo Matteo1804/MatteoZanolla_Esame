@@ -29,8 +29,14 @@ public class Tensore {
 		this.matrice.add(e);
 	}
 	
-	private void calcolaIndice(){
-		matrice.forEach(x -> indice += x.getDet());
+	public void calcolaIndice(){
+		for(MatriceQuadrata m: matrice){
+			indice += m.calcolaDet();
+		}
+	}
+
+	public Vector<MatriceQuadrata> getMatrice() {
+		return matrice;
 	}
 	
 	

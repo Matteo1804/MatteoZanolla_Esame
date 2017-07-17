@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class MatriceQuadrata {
 
-	private int dim;
+	private int dim = 0;
 	private int det=0;
 	private int matrice[][];
 	
@@ -37,7 +37,8 @@ public class MatriceQuadrata {
 	}
 	
 	public int calcolaDet(){
-		return sarrus();
+		if(dim == 3) return sarrus();
+		else return (int) laplace(matrice, dim);
 	}
 
 	public int getDet() {
@@ -81,4 +82,25 @@ public class MatriceQuadrata {
 						matrice[0][0]*matrice[2][1]*matrice[1][2]+
 						matrice[2][2]*matrice[0][1]*matrice[1][0]);
 	}
+
+	public int getDim() {
+		return dim;
+	}
+
+	public void setDim(int _dim) {
+		this.dim = _dim;
+	}
+
+	public int[][] getMatrice() {
+		return matrice;
+	}
+
+	public void setMatrice(int[][] matrice) {
+		this.matrice = matrice;
+	}
+
+	public void setDet(int det) {
+		this.det = det;
+	}
+	
 }
