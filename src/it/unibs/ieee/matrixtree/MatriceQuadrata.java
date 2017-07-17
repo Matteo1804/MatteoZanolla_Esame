@@ -44,7 +44,12 @@ public class MatriceQuadrata {
 	public int getDet() {
 		return det;
 	}
-	
+	/**
+	 * 
+	 * @param ai
+	 * @param i
+	 * @return il determinante
+	 */
 	private long laplace(int ai[][], int i) {
 		long l = 0L;
 		if (i == 1)
@@ -73,7 +78,10 @@ public class MatriceQuadrata {
 		}
 		return l;
 	}
-	
+	 /**
+	  * 
+	  * @return il determinante della matrice 3x3
+	  */
 	public int sarrus(){
 		return matrice[0][0]*matrice[1][1]*matrice[2][2]+
 				matrice[1][0]*matrice[2][1]*matrice[0][2]+

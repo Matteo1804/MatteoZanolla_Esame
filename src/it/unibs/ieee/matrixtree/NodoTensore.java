@@ -21,11 +21,19 @@ public class NodoTensore {
 		return ( maxIndiceTensore() > maxOtherTensorUnit()) ? maxIndiceTensore() : maxOtherTensorUnit();
 	}
 
+	/**
+	 * 
+	 * @return il massimo tra gli indici dei tensori collegati ad esso
+	 */
 	private int maxIndiceTensore(){
 		final Comparator<Tensore> comp = (t1, t2) -> Integer.compare( t1.getIndice(), t2.getIndice());
 		return tensori.stream().max(comp).get().getIndice();
 	}
 	
+	/**
+	 * 
+	 * @return il massimo delle tensorUnit tra i NodoTensore collegati ad esso
+	 */
 	private int maxOtherTensorUnit(){
 		if(level == 0) return -1;
 		else{
