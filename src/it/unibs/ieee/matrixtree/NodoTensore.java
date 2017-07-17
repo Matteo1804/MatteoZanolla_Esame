@@ -6,17 +6,19 @@ import java.util.Vector;
 public class NodoTensore {
 
 	private String label;
-	private Vector<Tensore> tensori = new Vector<>();
-	private Vector<NodoTensore> nodiTensore = new Vector<>();
+	private Vector<Tensore> tensori = null;
+	private Vector<NodoTensore> nodiTensore;
+	private NodoTensore nodoPadre;
 	private boolean root = false;
 	private int tensorUnit;
+	private int level = 0;
 	
 	public NodoTensore() {
-		super();
+		
 	}
 	
-	public int calcolaTensorUnit(){
-		return ( maxIndiceTensore() > maxIndiceTensore()) ? maxIndiceTensore() : maxOtherTensorUnit();
+	private int calculateTensorUnit(){
+		return ( maxIndiceTensore() > maxOtherTensorUnit()) ? maxIndiceTensore() : maxOtherTensorUnit();
 	}
 
 	private int maxIndiceTensore(){
@@ -26,15 +28,19 @@ public class NodoTensore {
 	
 	private int maxOtherTensorUnit(){
 		final Comparator<NodoTensore> comp = (t1, t2) -> Integer.compare( t1.getTensorUnit(), t2.getTensorUnit());
-		return nodiTensore.stream().max(comp).get().getTensorUnit();
+		return nodiTensore
+				.stream()
+				.max(comp)
+				.get()
+				.getTensorUnit();
 	}
 
 	public int getTensorUnit() {
 		return tensorUnit;
 	}
 
-	public void setTensorUnit() {
-		this.tensorUnit = calcolaTensorUnit();
+	public void calcolaTensorUnit() {
+		this.tensorUnit = calculateTensorUnit();
 	}
 
 	public Vector<Tensore> getTensori() {
@@ -46,6 +52,9 @@ public class NodoTensore {
 	}
 	
 	public void setTensore(Tensore tensore) {
+		if(tensori == null){
+			tensori = new Vector<>();
+		}
 		this.tensori.add(tensore);
 	}
 
@@ -68,10 +77,6 @@ public class NodoTensore {
 	public void setRoot(boolean root) {
 		this.root = root;
 	}
-
-	public void setTensorUnit(int tensorUnit) {
-		this.tensorUnit = tensorUnit;
-	}
 	
 	public String getLabel() {
 		return label;
@@ -80,5 +85,28 @@ public class NodoTensore {
 	public void setLabel(String label) {
 		this.label = label;
 	}
+	
+	public NodoTensore getNodoPadre() {
+		return nodoPadre;
+	}
+
+	public void setNodoPadre(NodoTensore nodoPadre) {
+		this.nodoPadre = nodoPadre;
+	}
+	
+	public String toString(){
+//		StringBuffer rit = new StringBuffer();
+		return label;
+	}
+
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
 
 }
