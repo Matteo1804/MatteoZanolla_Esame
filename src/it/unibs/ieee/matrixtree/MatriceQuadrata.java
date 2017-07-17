@@ -2,6 +2,11 @@ package it.unibs.ieee.matrixtree;
 
 import java.util.Vector;
 
+/**
+ * 
+ * @author Matteo
+ *
+ */
 public class MatriceQuadrata {
 
 	private int dim = 0;
@@ -23,7 +28,7 @@ public class MatriceQuadrata {
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
-	 * @overwrite
+	 * @override
 	 */
 	public String toString(){
 		StringBuffer ret = new StringBuffer();

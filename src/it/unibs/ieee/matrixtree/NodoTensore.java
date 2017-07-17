@@ -3,6 +3,11 @@ package it.unibs.ieee.matrixtree;
 import java.util.Comparator;
 import java.util.Vector;
 
+/**
+ * 
+ * @author Matteo
+ *
+ */
 public class NodoTensore {
 
 	private String label;

@@ -2,6 +2,11 @@ package it.unibs.ieee.matrixtree;
 
 import java.util.Vector;
 
+/**
+ * 
+ * @author Matteo
+ *
+ */
 public class Tensore {
 
 	private int id = this.hashCode();

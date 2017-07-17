@@ -19,7 +19,7 @@ public class XmlParser {
 	File filename;
 
 	/**
-	 * 
+	 * @author Matteo
 	 * @param filename
 	 * @return l'albero di nodi tensore
 	 * @throws FileNotFoundException
