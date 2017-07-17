@@ -7,7 +7,7 @@ public class NodoTensore {
 
 	private String label;
 	private Vector<Tensore> tensori = null;
-	private Vector<NodoTensore> nodiTensore;
+	private Vector<NodoTensore> nodiTensore = null;
 	private NodoTensore nodoPadre;
 	private boolean root = false;
 	private int tensorUnit;
@@ -27,14 +27,24 @@ public class NodoTensore {
 	}
 	
 	private int maxOtherTensorUnit(){
-		final Comparator<NodoTensore> comp = (t1, t2) -> Integer.compare( t1.getTensorUnit(), t2.getTensorUnit());
-		return nodiTensore
-				.stream()
-				.max(comp)
-				.get()
-				.getTensorUnit();
+		if(level == 0) return -1;
+		else{
+//			final Comparator<NodoTensore> comp = (t1, t2) -> Integer.compare( t1.getTensorUnit(), t2.getTensorUnit());
+//			return nodiTensore
+//					.stream()
+//					.max(comp)
+//					.get()
+//					.getTensorUnit();
+			for(int i = 0; i < nodiTensore.size(); i++){
+				if(nodiTensore.get(i).getTensorUnit() > tensorUnit)
+					tensorUnit = nodiTensore.get(i).getTensorUnit();
+			}
+			return tensorUnit;
+		}
+		
+		
 	}
-
+	
 	public int getTensorUnit() {
 		return tensorUnit;
 	}
@@ -63,11 +73,17 @@ public class NodoTensore {
 	}
 
 	public void setNodiTensore(Vector<NodoTensore> nodiTensore) {
+		if(nodiTensore == null){
+			nodiTensore = new Vector<>();
+		}
 		this.nodiTensore = nodiTensore;
 	}
 
-	public void setNodoTensore(NodoTensore nodoTensore) {
-		this.nodiTensore.add(nodoTensore);
+	public void setNodoTensore(NodoTensore _nodoTensore) {
+		if(nodiTensore == null){
+			nodiTensore = new Vector<>();
+		}
+		this.nodiTensore.add(_nodoTensore);
 	}
 
 	public boolean isRoot() {
