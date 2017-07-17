@@ -45,13 +45,15 @@ public class Main {
 			if(nt.getLevel() > maxLevel)
 				maxLevel = nt.getLevel();
 		}
-		levelIterator = maxLevel;
 
-		while(levelIterator > 0){
+		while(levelIterator <= maxLevel){
 			for(NodoTensore nt: a){
-				if(nt.getLevel() == levelIterator)
+				if(nt.getLevel() == levelIterator){
 					nt.calcolaTensorUnit();
+					System.out.println(nt.getTensorUnit());
+				}
 			}
+			levelIterator++;
 		}
 		
 
