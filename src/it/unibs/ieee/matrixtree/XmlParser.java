@@ -106,6 +106,8 @@ public class XmlParser {
 					break;
 				case "TensorNode":
 					nodoPadre.pop();
+					if(nodoPadre.size() == 0)
+						tmp.get(tmp.size()-1).setRoot(true);
 					break;
 				case "tensore":
 					tensoreAttuale.pop();
